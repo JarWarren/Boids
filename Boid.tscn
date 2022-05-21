@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba6a244j217ua"]
+
+[ext_resource type="Texture2D" uid="uid://cbslrgw4p8y3o" path="res://boid.PNG" id="1_oi6fw"]
+[ext_resource type="Script" path="res://Boid.gd" id="2_7spif"]
+
+[node name="Boid" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource( "1_oi6fw" )
+script = ExtResource( "2_7spif" )
