@@ -8,20 +8,10 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Sprite2D",
-"class": &"Boid",
-"language": &"GDScript",
-"path": "res://Boid.gd"
-}]
-_global_script_class_icons={
-"Boid": ""
-}
-
 [application]
 
 config/name="Boids"
-run/main_scene="res://plane.tscn"
+run/main_scene="res://Scene2d.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
@@ -37,10 +27,11 @@ window/stretch/mode="viewport"
 
 click={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"button_mask":1,"position":Vector2(238, 294),"global_position":Vector2(238, 294),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"meta_pressed":false,"command_pressed":false,"button_mask":1,"position":Vector2(238, 294),"global_position":Vector2(238, 294),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
 ]
 }
 
 [rendering]
 
 vulkan/rendering/back_end=1
+environment/defaults/default_clear_color=Color(0.427451, 0.427451, 0.427451, 1)
