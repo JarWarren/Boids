@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://eklplhlyiotc"]
+
+[ext_resource type="Script" path="res://3D/Boid3D.gd" id="1_8po4c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5rx1b"]
+radius = 16.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a50m0"]
+albedo_color = Color(0, 1, 0.368627, 1)
+disable_receive_shadows = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_1gth3"]
+material = SubResource( "StandardMaterial3D_a50m0" )
+size = Vector3(1, 1, 2)
+
+[node name="Boid3D" type="Area3D"]
+script = ExtResource( "1_8po4c" )
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource( "SphereShape3D_5rx1b" )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource( "PrismMesh_1gth3" )
+
+[connection signal="area_entered" from="." to="." method="_on_boid_3d_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_boid_3d_area_exited"]

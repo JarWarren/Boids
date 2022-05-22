@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dukimu2lxbjs2"]
 
-[ext_resource type="Script" path="res://HUD.gd" id="1_d7umh"]
-[ext_resource type="Texture2D" uid="uid://cbslrgw4p8y3o" path="res://2D/boid.PNG" id="2_6rw1u"]
-[ext_resource type="PackedScene" uid="uid://d2mfnphifw6rf" path="res://2D/Scene2d.tscn" id="3_svf5h"]
+[ext_resource type="Script" path="res://HUD.gd" id="1_mnfvv"]
+[ext_resource type="Texture2D" uid="uid://cbslrgw4p8y3o" path="res://2D/boid.PNG" id="2_q6ryp"]
+[ext_resource type="PackedScene" uid="uid://d2mfnphifw6rf" path="res://2D/Scene2d.tscn" id="3_35tbf"]
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource( "1_d7umh" )
+script = ExtResource( "1_mnfvv" )
 
 [node name="TabBar" type="TabBar" parent="."]
 offset_right = 98.0
@@ -13,10 +13,10 @@ offset_bottom = 40.0
 clip_tabs = false
 tab_count = 2
 tab_0/title = "2D"
-tab_0/icon = ExtResource( "2_6rw1u" )
+tab_0/icon = ExtResource( "2_q6ryp" )
 tab_1/title = "3D"
 
-[node name="Scene2D" parent="." instance=ExtResource( "3_svf5h" )]
+[node name="Scene2D" parent="." instance=ExtResource( "3_35tbf" )]
 
 [node name="Cohesion" type="CheckBox" parent="."]
 offset_top = 40.0

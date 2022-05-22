@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://cimc8krbelkof"]
+[gd_scene load_steps=4 format=3 uid="uid://cimc8krbelkof"]
+
+[ext_resource type="Script" path="res://3D/Scene3D.gd" id="1_amch6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cegqj"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+albedo_color = Color(0.729412, 0.909804, 1, 0.501961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pehuv"]
+material = SubResource( "StandardMaterial3D_cegqj" )
+size = Vector3(140, 80, 100)
 
 [node name="Scene3D" type="Node3D"]
+script = ExtResource( "1_amch6" )
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.994522, -0.0109262, 0.103956, 0, 0.994522, 0.104528, -0.104528, -0.103956, 0.989074, 16, 16, 96)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -32)
+mesh = SubResource( "BoxMesh_pehuv" )
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 64.0
+omni_range = 128.0
