@@ -20,7 +20,7 @@ func _process(delta):
 	# should perch
 	if position.y < -BOUNDARY_Y && !recently_perched && Rules.is_perching_enabled:
 		perch_timer = randi_range(64, 256)
-		# rotation = -1.5708
+		rotation = Vector3.ZERO
 		recently_perched = true
 		velocity.y = -velocity.y
 		return
@@ -45,7 +45,7 @@ func _process(delta):
 		# alone - moving in the same direction
 	if local_boids.size() == 0:
 		position += velocity
-		# rotation = velocity.normalized().angle()
+		look_at(position + velocity)
 		return
 	
 	# cohesion - gravitate towards other boids
@@ -80,8 +80,8 @@ func _process(delta):
 	velocity.z = clamp(velocity.z, -MAX_SPEED, MAX_SPEED)
 	
 	# update position and rotation
+	look_at(position + velocity)
 	position += velocity
-	# rotation = velocity.normalized().angle()
 
 
 func _on_boid_3d_area_entered(area):
