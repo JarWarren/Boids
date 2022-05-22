@@ -39,6 +39,8 @@ func _on_tab_bar_tab_changed(tab):
 			active_scene = scene_2d.instantiate()
 		1:
 			active_scene = scene_3d.instantiate()
+	hint_label.text = "Click to spawn Boids"
+	hint_label.visible = true
 	add_child(active_scene)
 
 
