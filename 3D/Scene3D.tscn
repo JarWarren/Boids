@@ -16,7 +16,7 @@ size = Vector3(140, 80, 100)
 script = ExtResource( "1_amch6" )
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.994522, -0.0109262, 0.103956, 0, 0.994522, 0.104528, -0.104528, -0.103956, 0.989074, 16, 16, 96)
+transform = Transform3D(0.994522, -0.00729154, 0.104274, -2.32831e-10, 0.997564, 0.0697565, -0.104528, -0.0693743, 0.992099, 16, 14, 76)
 current = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
