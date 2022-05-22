@@ -25,12 +25,6 @@ func _process(delta):
 		velocity.y = -velocity.y
 		return
 	
-	# alone - moving in the same direction
-	if local_boids.size() == 0:
-		position += velocity
-		# rotation = velocity.normalized().angle()
-		return
-	
 	
 	# out of bounds - gently redirect into the viewport
 	if position.x < -BOUNDARY_X:
@@ -48,6 +42,12 @@ func _process(delta):
 	else:
 		recently_perched = false
 	
+		# alone - moving in the same direction
+	if local_boids.size() == 0:
+		position += velocity
+		# rotation = velocity.normalized().angle()
+		return
+	
 	# cohesion - gravitate towards other boids
 	var cohesion = Vector3.ZERO
 	if Rules.is_cohesion_enabled:
@@ -55,13 +55,13 @@ func _process(delta):
 			cohesion += boid.position
 		cohesion /= local_boids.size()
 		cohesion -= position
-		cohesion /= 128
+		cohesion /= 64
 	
 	# separation - don't collide with other boids
 	var separation = Vector3.ZERO
 	if Rules.is_separation_enabled:
 		for boid in local_boids:
-			if position.distance_to(boid.position) < 16:
+			if position.distance_to(boid.position) < 8:
 				separation -= boid.position - position
 	
 	# alignment - steer to match direction with other boids

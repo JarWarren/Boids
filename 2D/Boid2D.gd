@@ -22,13 +22,6 @@ func _process(delta):
 		velocity.y = -velocity.y
 		return
 	
-	# alone - moving in the same direction
-	if local_boids.size() == 0:
-		position += velocity
-		rotation = velocity.normalized().angle()
-		return
-	
-	
 	# out of bounds - gently redirect into the viewport
 	if position.x < 50:
 		velocity.x += BOUNDARY_REPULSION
@@ -40,6 +33,12 @@ func _process(delta):
 		velocity.y -= BOUNDARY_REPULSION
 	else:
 		recently_perched = false
+	
+		# alone - moving in the same direction
+	if local_boids.size() == 0:
+		position += velocity
+		rotation = velocity.normalized().angle()
+		return
 	
 	# cohesion - gravitate towards other boids
 	var cohesion = Vector2.ZERO
