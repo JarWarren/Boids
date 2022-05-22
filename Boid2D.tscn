@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Boid2D.gd" id="2_i1hcn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kr3i"]
-radius = 120.004
+radius = 64.0
 
 [node name="Boid2D" type="Area2D"]
 texture_filter = 1

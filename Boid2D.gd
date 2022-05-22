@@ -1,41 +1,69 @@
 extends Area2D
 
 const MAX_SPEED = 3
+const BOUNDARY_REPULSION = 0.05
 var velocity = Vector2(randf_range(-MAX_SPEED, MAX_SPEED), randf_range(-MAX_SPEED, MAX_SPEED))
 var local_boids = []
+var perch_timer = 0
+var recently_perched = false
 
-func _ready():
-	rotation = velocity.normalized().angle()
 
-func _process(_delta):
+func _process(delta):
+	# perched
+	if perch_timer >= 0:
+		perch_timer -= 1
+		return
+	
+	# should perch
+	if position.y > 596 && !recently_perched:
+		perch_timer = randi_range(64, 256)
+		rotation = -1.5708
+		recently_perched = true
+		velocity.y = -velocity.y
+		return
+	
+	# alone - moving in the same direction
 	if local_boids.size() == 0:
 		position += velocity
+		rotation = velocity.normalized().angle()
 		return
-	var cohesion = Vector2.ZERO
-	var separation = Vector2.ZERO
-	var alignment = Vector2.ZERO
+	
+	
+	# out of bounds - gently redirect into the viewport
+	if position.x < 50:
+		velocity.x += BOUNDARY_REPULSION
+	elif position.x > 974:
+		velocity.x -= BOUNDARY_REPULSION
+	if position.y < 50:
+		velocity.y += BOUNDARY_REPULSION
+	elif position.y > 550:
+		velocity.y -= BOUNDARY_REPULSION
+	else:
+		recently_perched = false
+	
+	# placeholders for the 3 rules
+	var cohesion = Vector2.ZERO # gravitate towards other boids
+	var separation = Vector2.ZERO # don't collide
+	var alignment = Vector2.ZERO # steer to match their direction
+	
+	# each of the rules is influenced by boids in the vicinity
 	for boid in local_boids:
 		cohesion += boid.position
 		alignment += boid.velocity
-		if position.distance_to(boid.position) < 32:
+		if position.distance_to(boid.position) < 16:
 			separation -= boid.position - position
 	cohesion /= local_boids.size()
 	cohesion -= position
 	cohesion /= 128
 	alignment /= local_boids.size()
 	alignment -= velocity
-	alignment /= 32
-	velocity += cohesion + separation + alignment
-	if position.x < 0:
-		velocity.x += 1
-	elif position.x > 1024:
-		velocity.x -= 1
-	if position.y < 0:
-		velocity.y += 1
-	elif position.y > 600:
-		velocity.y -= 1
+	velocity += (cohesion + separation + alignment) * delta
+	
+	# prevent boid from moving arbitrarily fast
 	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 	velocity.y = clamp(velocity.y, -MAX_SPEED, MAX_SPEED)
+	
+	# update position and rotation
 	position += velocity
 	rotation = velocity.normalized().angle()
 
