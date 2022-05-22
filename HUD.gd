@@ -9,6 +9,7 @@ var scene_3d = preload("res://3D/Scene3D.tscn")
 @onready var alignment = $Alignment
 @onready var perching = $Perching
 @onready var tabs: TabBar = $TabBar
+@onready var hint_label = $HintLabel
 
 
 func _process(_delta):
@@ -26,6 +27,8 @@ func _process(_delta):
 		perching.button_pressed = Rules.is_perching_enabled
 	if Input.is_action_just_pressed("toggle"):
 		tabs.current_tab = 1 - tabs.current_tab
+	if Input.is_action_just_pressed("click"):
+		hint_label.visible = false
 
 
 func _on_tab_bar_tab_changed(tab):
@@ -53,3 +56,27 @@ func _on_separation_toggled(button_pressed):
 
 func _on_cohesion_toggled(button_pressed):
 	Rules.is_cohesion_enabled = button_pressed
+
+
+func _on_cohesion_mouse_entered():
+	hint_label.text = "Boids move towards each other"
+	hint_label.visible = true
+
+
+func _on_separation_mouse_entered():
+	hint_label.text = "Boids avoid colliding with each other"
+	hint_label.visible = true
+
+
+func _on_alignment_mouse_entered():
+	hint_label.text = "Boids try to steer in the same direction"
+	hint_label.visible = true
+
+
+func _on_perching_mouse_entered():
+	hint_label.text = "Phew! Boids rest their feet."
+	hint_label.visible = true
+
+
+func _on_mouse_exited():
+	hint_label.visible = false

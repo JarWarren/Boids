@@ -48,15 +48,29 @@ offset_bottom = 164.0
 button_pressed = true
 text = "R: Perching"
 
-[node name="Label" type="Label" parent="."]
+[node name="ToggleLabel" type="Label" parent="."]
 offset_left = 124.0
 offset_top = 9.0
 offset_right = 245.0
 offset_bottom = 35.0
 text = "T: Toggle 2D/3D"
 
+[node name="HintLabel" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Click to spawn Boids"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]
+[connection signal="mouse_entered" from="Cohesion" to="." method="_on_cohesion_mouse_entered"]
+[connection signal="mouse_exited" from="Cohesion" to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="Cohesion" to="." method="_on_cohesion_toggled"]
+[connection signal="mouse_entered" from="Separation" to="." method="_on_separation_mouse_entered"]
 [connection signal="toggled" from="Separation" to="." method="_on_separation_toggled"]
+[connection signal="mouse_entered" from="Alignment" to="." method="_on_alignment_mouse_entered"]
+[connection signal="mouse_exited" from="Alignment" to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="Alignment" to="." method="_on_alignment_toggled"]
+[connection signal="mouse_entered" from="Perching" to="." method="_on_perching_mouse_entered"]
+[connection signal="mouse_exited" from="Perching" to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="Perching" to="." method="_on_perching_toggled"]
