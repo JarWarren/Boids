@@ -1,6 +1,6 @@
 extends Node2D
 
-var boid_scene = preload("res://Boid2D.tscn")
+var boid_scene = preload("res://2D/Boid2D.tscn")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("click"):

@@ -1,21 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://4iumqwkujjjx"]
+[gd_scene load_steps=4 format=3 uid="uid://xs87h0phwi3j"]
 
-[ext_resource type="Texture2D" uid="uid://cbslrgw4p8y3o" path="res://boid.PNG" id="1_8mgmy"]
-[ext_resource type="Script" path="res://Boid2D.gd" id="2_i1hcn"]
+[ext_resource type="Script" path="res://2D/Boid2D.gd" id="1_mdf65"]
+[ext_resource type="Texture2D" path="res://2D/boid.PNG" id="2_q32cf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kr3i"]
 radius = 64.0
 
 [node name="Boid2D" type="Area2D"]
 texture_filter = 1
-script = ExtResource( "2_i1hcn" )
+script = ExtResource( "1_mdf65" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( "CircleShape2D_6kr3i" )
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 2
-texture = ExtResource( "1_8mgmy" )
+texture = ExtResource( "2_q32cf" )
 
 [connection signal="area_entered" from="." to="." method="_on_boid_2d_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_boid_2d_area_exited"]

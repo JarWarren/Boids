@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8n8fp7ra8yod"]
+
+[ext_resource type="Script" path="res://2D/Scene2d.gd" id="1_1ds6u"]
+[ext_resource type="PackedScene" path="res://2D/Boid2D.tscn" id="2_kqrqu"]
+
+[node name="Scene2D" type="Node2D"]
+script = ExtResource( "1_1ds6u" )
+
+[node name="Boid2D" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(131, 28)
+
+[node name="Boid2D2" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(492, 7)
+
+[node name="Boid2D3" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(338, 159)
+
+[node name="Boid2D7" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(492, 366)
+
+[node name="Boid2D8" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(479, 571)
+
+[node name="Boid2D9" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(271, 624)
+
+[node name="Boid2D4" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(117, 248)
+
+[node name="Boid2D5" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(80, 503)
+
+[node name="Boid2D6" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(274, 390)
+
+[node name="Boid2D10" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(778, 12)
+
+[node name="Boid2D11" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(1139, -9)
+
+[node name="Boid2D12" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(997, 148)
+
+[node name="Boid2D13" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(1151, 293)
+
+[node name="Boid2D14" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(1105, 512)
+
+[node name="Boid2D19" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(606, 188)
+
+[node name="Boid2D15" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(918, 608)
+
+[node name="Boid2D16" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(810, 237)
+
+[node name="Boid2D17" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(713, 553)
+
+[node name="Boid2D18" parent="." instance=ExtResource( "2_kqrqu" )]
+position = Vector2(928, 404)

@@ -15,7 +15,7 @@ func _process(delta):
 		return
 	
 	# should perch
-	if position.y > 596 && !recently_perched:
+	if position.y > 596 && !recently_perched && Rules.is_perching_enabled:
 		perch_timer = randi_range(64, 256)
 		rotation = -1.5708
 		recently_perched = true
@@ -41,22 +41,30 @@ func _process(delta):
 	else:
 		recently_perched = false
 	
-	# placeholders for the 3 rules
-	var cohesion = Vector2.ZERO # gravitate towards other boids
-	var separation = Vector2.ZERO # don't collide
-	var alignment = Vector2.ZERO # steer to match their direction
+	# cohesion - gravitate towards other boids
+	var cohesion = Vector2.ZERO
+	if Rules.is_cohesion_enabled:
+		for boid in local_boids:
+			cohesion += boid.position
+		cohesion /= local_boids.size()
+		cohesion -= position
+		cohesion /= 128
 	
-	# each of the rules is influenced by boids in the vicinity
-	for boid in local_boids:
-		cohesion += boid.position
-		alignment += boid.velocity
-		if position.distance_to(boid.position) < 16:
-			separation -= boid.position - position
-	cohesion /= local_boids.size()
-	cohesion -= position
-	cohesion /= 128
-	alignment /= local_boids.size()
-	alignment -= velocity
+	# separation - don't collide with other boids
+	var separation = Vector2.ZERO
+	if Rules.is_separation_enabled:
+		for boid in local_boids:
+			if position.distance_to(boid.position) < 16:
+				separation -= boid.position - position
+	
+	# alignment - steer to match direction with other boids
+	var alignment = Vector2.ZERO
+	if Rules.is_alignment_enabled:
+		for boid in local_boids:
+			alignment += boid.velocity
+		alignment /= local_boids.size()
+		alignment -= velocity
+	
 	velocity += (cohesion + separation + alignment) * delta
 	
 	# prevent boid from moving arbitrarily fast

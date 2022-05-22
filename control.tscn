@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://dukimu2lxbjs2"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_d7umh"]
+[ext_resource type="Texture2D" uid="uid://cbslrgw4p8y3o" path="res://2D/boid.PNG" id="2_6rw1u"]
+[ext_resource type="PackedScene" uid="uid://d2mfnphifw6rf" path="res://2D/Scene2d.tscn" id="3_svf5h"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( "1_d7umh" )
+
+[node name="TabBar" type="TabBar" parent="."]
+offset_right = 98.0
+offset_bottom = 40.0
+clip_tabs = false
+tab_count = 2
+tab_0/title = "2D"
+tab_0/icon = ExtResource( "2_6rw1u" )
+tab_1/title = "3D"
+
+[node name="Scene2D" parent="." instance=ExtResource( "3_svf5h" )]
+
+[node name="Cohesion" type="CheckBox" parent="."]
+offset_top = 40.0
+offset_right = 121.0
+offset_bottom = 71.0
+button_pressed = true
+text = "Q: Cohesion"
+
+[node name="Separation" type="CheckBox" parent="."]
+offset_top = 71.0
+offset_right = 136.0
+offset_bottom = 102.0
+button_pressed = true
+text = "W: Separation"
+
+[node name="Alignment" type="CheckBox" parent="."]
+offset_top = 102.0
+offset_right = 129.0
+offset_bottom = 133.0
+button_pressed = true
+text = "E: Alignment"
+
+[node name="Perching" type="CheckBox" parent="."]
+offset_top = 133.0
+offset_right = 129.0
+offset_bottom = 164.0
+button_pressed = true
+text = "R: Perching"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 107.0
+offset_top = 9.0
+offset_right = 228.0
+offset_bottom = 35.0
+text = "T: Toggle 2D/3D"
+
+[connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]
+[connection signal="toggled" from="Cohesion" to="." method="_on_cohesion_toggled"]
+[connection signal="toggled" from="Separation" to="." method="_on_separation_toggled"]
+[connection signal="toggled" from="Alignment" to="." method="_on_alignment_toggled"]
+[connection signal="toggled" from="Perching" to="." method="_on_perching_toggled"]
