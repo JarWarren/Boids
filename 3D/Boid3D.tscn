@@ -2,27 +2,27 @@
 
 [ext_resource type="Script" path="res://3D/Boid3D.gd" id="1_8po4c"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5rx1b"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_on8wk"]
 radius = 16.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a50m0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yq8n3"]
 albedo_color = Color(0.156863, 0.635294, 1, 1)
 disable_receive_shadows = true
 
-[sub_resource type="PrismMesh" id="PrismMesh_1gth3"]
-material = SubResource( "StandardMaterial3D_a50m0" )
+[sub_resource type="PrismMesh" id="PrismMesh_e1qeb"]
+material = SubResource("StandardMaterial3D_yq8n3")
 size = Vector3(1, 1, 4)
 
 [node name="Boid3D" type="Area3D"]
 rotation_edit_mode = 1
-script = ExtResource( "1_8po4c" )
+script = ExtResource("1_8po4c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource( "SphereShape3D_5rx1b" )
+shape = SubResource("SphereShape3D_on8wk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 rotation_edit_mode = 1
-mesh = SubResource( "PrismMesh_1gth3" )
+mesh = SubResource("PrismMesh_e1qeb")
 
 [connection signal="area_entered" from="." to="." method="_on_boid_3d_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_boid_3d_area_exited"]

@@ -12,8 +12,8 @@ config_version=5
 
 config/name="Boids"
 run/main_scene="res://HUD.tscn"
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
 [autoload]
 
@@ -21,42 +21,44 @@ Rules="*res://Rules.gd"
 
 [display]
 
+window/size/viewport_width=800
+window/size/viewport_height=452
 window/stretch/mode="viewport"
 
 [input]
 
 click={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"button_mask":1,"position":Vector2(238, 294),"global_position":Vector2(238, 294),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(238, 294),"global_position":Vector2(238, 294),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
 ]
 }
 cohesion={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"unicode":0,"echo":false,"script":null)
 ]
 }
 separation={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"unicode":0,"echo":false,"script":null)
 ]
 }
 alignment={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"unicode":0,"echo":false,"script":null)
 ]
 }
 perching={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"unicode":0,"echo":false,"script":null)
 ]
 }
 toggle={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"command_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"unicode":0,"echo":false,"script":null)
 ]
 }
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.501961, 0.501961, 0.501961, 1)
 vulkan/rendering/back_end=1
-environment/defaults/default_clear_color=Color(0.427451, 0.427451, 0.427451, 1)

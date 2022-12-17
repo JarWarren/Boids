@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dukimu2lxbjs2"]
+[gd_scene load_steps=5 format=3 uid="uid://bwqmvies4k68v"]
 
 [ext_resource type="Script" path="res://HUD.gd" id="1_mnfvv"]
 [ext_resource type="Texture2D" uid="uid://cbslrgw4p8y3o" path="res://2D/boid.PNG" id="2_q6ryp"]
-[ext_resource type="PackedScene" uid="uid://d2mfnphifw6rf" path="res://2D/Scene2d.tscn" id="3_35tbf"]
+[ext_resource type="PackedScene" path="res://2D/Scene2D.tscn" id="3_35tbf"]
 [ext_resource type="Texture2D" uid="uid://cghb3kxrjf3rf" path="res://3D/boid3D.PNG" id="3_ry83o"]
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource( "1_mnfvv" )
+script = ExtResource("1_mnfvv")
 
 [node name="TabBar" type="TabBar" parent="."]
 offset_right = 98.0
@@ -14,11 +14,11 @@ offset_bottom = 40.0
 clip_tabs = false
 tab_count = 2
 tab_0/title = "2D"
-tab_0/icon = ExtResource( "2_q6ryp" )
+tab_0/icon = ExtResource("2_q6ryp")
 tab_1/title = "3D"
-tab_1/icon = ExtResource( "3_ry83o" )
+tab_1/icon = ExtResource("3_ry83o")
 
-[node name="Scene2D" parent="." instance=ExtResource( "3_35tbf" )]
+[node name="Scene2D" parent="." instance=ExtResource("3_35tbf")]
 
 [node name="Cohesion" type="CheckBox" parent="."]
 offset_top = 40.0
@@ -56,8 +56,11 @@ offset_bottom = 35.0
 text = "T: Toggle 2D/3D"
 
 [node name="HintLabel" type="Label" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Click to spawn Boids"
 horizontal_alignment = 1
 vertical_alignment = 1

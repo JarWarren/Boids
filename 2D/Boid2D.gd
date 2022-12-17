@@ -15,7 +15,7 @@ func _process(delta):
 		return
 	
 	# should perch
-	if position.y > 596 && !recently_perched && Rules.is_perching_enabled:
+	if position.y > 444 && !recently_perched && Rules.is_perching_enabled:
 		perch_timer = randi_range(64, 256)
 		rotation = -1.5708
 		recently_perched = true
@@ -25,11 +25,11 @@ func _process(delta):
 	# out of bounds - gently redirect into the viewport
 	if position.x < 50:
 		velocity.x += BOUNDARY_REPULSION
-	elif position.x > 974:
+	elif position.x > 750:
 		velocity.x -= BOUNDARY_REPULSION
 	if position.y < 50:
 		velocity.y += BOUNDARY_REPULSION
-	elif position.y > 550:
+	elif position.y > 400:
 		velocity.y -= BOUNDARY_REPULSION
 	else:
 		recently_perched = false
